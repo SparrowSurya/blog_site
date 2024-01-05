@@ -4,4 +4,7 @@
 * [x] Blog post list view
 * [x] Blog post detail view
 * [x] Bootstrap
-* [ ] Home page
+* [x] Home page
+* [ ] User SignUp
+* [ ] User SignIn
+* [ ] User SignOut
