@@ -6,5 +6,8 @@
 * [x] Bootstrap
 * [x] Home page
 * [ ] User SignUp
-* [ ] User SignIn
-* [ ] User SignOut
+* [x] User SignIn
+* [-] User SignOut
+
+## Pending
+* SignIn page not displays content at center

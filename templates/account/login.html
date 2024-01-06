@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Login | Blog{% endblock title %}
+
+{% block content %}
+<div class="d-flex align-items-center" style="margin: auto;">
+    <main class="m-auto bg-body-tertiary border border-1 rounded" style="min-width: 18rem; padding: 1rem;">
+        <form action={% url "account:login" %} method="POST">
+            {% csrf_token %}
+
+            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+            <div class="mb-3">
+                <label for="id_username">Username</label>
+                <input type="text" name="username" class="form-control" autofocus placeholder="username" autocomplete="username" maxlength="150" required id="id_username">
+            </div>
+            <div class="mb-3">
+                <label for="id_password">Password</label>
+                <input type="password" name="password" class="form-control" autocomplete="current-password" placeholder="password" required id="id_password">
+            </div>
+
+            <button class="btn btn-primary w-100 py-2 my-3" type="submit">SignIn</button>
+        </form>
+    </main>
+</div>
+{% endblock content %}
