@@ -25,6 +25,10 @@
     <title>{% block title %}{% endblock title %}</title>
 </head>
 <body>
+
+    {% comment %} navbar {% endcomment %}
+    {% block navbar %}{% endblock navbar %}
+
     {% comment %} Everything goes in here {% endcomment %}
     {% block content %}{% endblock content %}
 

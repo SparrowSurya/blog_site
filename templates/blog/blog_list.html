@@ -2,10 +2,12 @@
 
 {% block title %}All | Blogs{% endblock title %}
 
+{% block navbar %} {% include "navbar.html" %} {% endblock navbar %}
+
 {% block content %}
-<div class="container">
+<main class="container">
     <div class="row">
-        <div class="col-md-6 mt-5 mx-auto">
+        <div class="col-md-6 mt-3 mx-auto">
             {% for post in post_list %}
             <div class="card mb-4">
                 <div class="card-body">
@@ -18,5 +20,5 @@
             {% endfor %}
         </div>
     </div>
-</div>
+</main>
 {% endblock content %}

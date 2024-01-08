@@ -11,7 +11,7 @@ class AccountLogin(LoginView):
     def get_redirect_url(self) -> str:
         return reverse_lazy("blog:blogs_list")
 
-# TODO
+
 class AccountLogout(LogoutView):
     def get_redirect_url(self):
         return reverse_lazy("pages:home")
