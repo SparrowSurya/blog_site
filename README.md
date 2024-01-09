@@ -5,10 +5,10 @@
 * [x] Read Blog
 * [x] Add Bootstrap
 * [x] Home page
-* [ ] User SignUp
+* [x] User SignUp
 * [x] User SignIn
 * [x] User SignOut
 * [ ] Write Blog
 
 ## Pending
-* SignIn page not displays content at center
+* All pages are temporary & dont link each other
