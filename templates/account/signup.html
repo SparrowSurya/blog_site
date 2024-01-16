@@ -3,7 +3,16 @@
 {% block title %}Register | Blog{% endblock title %}
 
 {% block content %}
-<div class="container-fluid center-content">
+
+<h1>Signup</h1>
+<form method="post" action="{% url "account:signup" %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p>Already signed up? <a href="{% url "account:signin" %}">signin here</a></p>
+    <button type="submit">Submit</button>
+</form>
+
+{% comment %} <div class="container-fluid center-content">
     <div class="container mt-5 mb-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -42,5 +51,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> {% endcomment %}
 {% endblock content %}

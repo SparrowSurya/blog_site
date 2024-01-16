@@ -5,21 +5,21 @@ from django.urls import reverse_lazy
 from . import forms
 
 
-class AccountRegister(CreateView):
-    template_name = "account/register.html"
-    success_url = reverse_lazy("account:login")
+class Signup(CreateView):
+    template_name = "account/signup.html"
+    success_url = reverse_lazy("account:signin")
     form_class = forms.AccountRegisterForm
 
 
-class AccountLogin(LoginView):
-    template_name = "account/login.html"
+class Signin(LoginView):
+    template_name = "account/signin.html"
     success_url = reverse_lazy("blog:blog_list")
     redirect_authenticated_user = True
 
     def get_redirect_url(self) -> str:
-        return reverse_lazy("blog:blogs_list")
+        return reverse_lazy("blog:blog_list")
 
 
-class AccountLogout(LogoutView):
+class Signout(LogoutView):
     def get_redirect_url(self):
-        return reverse_lazy("pages:home")
+        return reverse_lazy("page:home")

@@ -5,7 +5,17 @@
 {% block navbar %} {% include "navbar.html" %} {% endblock navbar %}
 
 {% block content %}
-<main class="container">
+
+{% for post in post_list %}
+<div>
+    <h1>{{ post.title|capfirst }}</h1>
+    <p>{{ post.author|capfirst }} | {{ post.created_on }}</p>
+    <p>{{ post.content|slice:"220" }}</p>
+    <a href="{% url "blog:blog_detail" post.slug %}">Read More &rarr;</a>
+</div>
+{% endfor %}
+
+{% comment %} <main class="container">
     <div class="row">
         <div class="col-md-6 mt-3 mx-auto">
             {% for post in post_list %}
@@ -20,5 +30,5 @@
             {% endfor %}
         </div>
     </div>
-</main>
+</main> {% endcomment %}
 {% endblock content %}

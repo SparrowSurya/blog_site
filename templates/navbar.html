@@ -1,4 +1,13 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<div>
+    <strong>Navbar</strong>
+    {% if user.is_authentiated %}
+    <a href="{% url "account:signout" %}">Signout</a>
+    {% else %}
+    <a href="{% url "account:signin" %}">Signin</a>
+    {% endif %}
+</div>
+
+{% comment %} <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
@@ -20,4 +29,4 @@
             <a href="{% url 'account:logout' %}" class="btn btn-secondary">Signout</a>
         </div>
     </div>
-</nav>
+</nav> {% endcomment %}

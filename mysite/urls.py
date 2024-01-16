@@ -6,9 +6,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(('pages.urls', 'pages'), namespace='page')),
+    path('', include(('pages.urls', 'page'), namespace='page')),
     path('blog/', include(('blog.urls', 'blog'), namespace='blog')),
-    path('account/', include(('account.urls', 'account'), namespace='account')),
+    path('', include(('account.urls', 'account'), namespace='account')),
 
     path('', RedirectView.as_view(url='/home', permanent=False)),
 ]

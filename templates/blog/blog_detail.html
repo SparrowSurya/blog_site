@@ -5,7 +5,12 @@
 {% block navbar %} {% include "navbar.html" %} {% endblock navbar %}
 
 {% block content %}
-<div class="container my-3">
+
+<h1>{{ post.title|capfirst }}</h1>
+<p>{{ post.author|capfirst }} | {{ post.created_on }}</p>
+<p>{{ post.content|safe }}</p>
+
+{% comment %} <div class="container my-3">
     <div class="row">
         <div class="col-md-8 card mx-auto">
             <div class="card-body">
@@ -15,5 +20,5 @@
             </div>
         </div>
     </div>
-  </div>
+  </div> {% endcomment %}
 {% endblock content %}
