@@ -8,7 +8,10 @@
 * [x] User SignUp
 * [x] User SignIn
 * [x] User SignOut
-* [ ] Write Blog
+* [x] Write Blog
+* [ ] Dashboard
+* [ ] Edit blog
+* [ ] Publish Blog
 
-## Pending
-* All pages are temporary & dont link each other
+## Later
+* Interface design (for now only required info is shown in minimal form)

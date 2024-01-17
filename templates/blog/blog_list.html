@@ -6,12 +6,12 @@
 
 {% block content %}
 
-{% for post in post_list %}
+{% for blog in blogs %}
 <div>
-    <h1>{{ post.title|capfirst }}</h1>
-    <p>{{ post.author|capfirst }} | {{ post.created_on }}</p>
-    <p>{{ post.content|slice:"220" }}</p>
-    <a href="{% url "blog:blog_detail" post.slug %}">Read More &rarr;</a>
+    <h1>{{ blog.title|capfirst }}</h1>
+    <p>{{ blog.author|capfirst }} | {{ blog.created_on }}</p>
+    <p>{{ blog.content|slice:"220" }}</p>
+    <a href="{% url "blog:blog_detail" blog.slug %}">Read More &rarr;</a>
 </div>
 {% endfor %}
 
