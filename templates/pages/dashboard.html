@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | Blog{% endblock title %}
+
+{% block content %}
+<h1>Dashboard</h1>
+
+<form method="post" action="{% url "account:signout" %}">
+    {% csrf_token %}
+    <button type="submit">Signout</button>
+</form>
+
+<h3>Blogs:</h3>
+<ul>
+    {% for blog in blogs %}
+    <li>
+        <strong>
+            <a href="{% url "blog:blog_detail" blog.slug %}">{{ blog }}</a>
+        </strong>
+        {% if blog.status == 0 %}
+        <p>Draft</p>
+        {% else %}
+        <p>Published</p>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock content %}

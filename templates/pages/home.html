@@ -9,13 +9,19 @@
 <p>Links:</p>
 <ul>
     {% if user.is_authenticated %}
-    <li><a href="{% url "account:signout" %}">Signout here.</a></li>
+    <li>
+        <form method="post" action="{% url "account:signout" %}">
+            {% csrf_token %}
+            <button type="submit">Signout</button>
+        </form>
+    </li>
     {% else %}
     <li><a href="{% url "account:signup" %}">Signup here.</a></li>
     <li><a href="{% url "account:signin" %}">Signin here.</a></li>
     {% endif %}
 
     {% if user.is_authenticated %}
+    <li><a href="{% url "page:dashboard" %}">Dashboard.</a></li>
     <li><a href="{% url "blog:blog_write" %}">Write blog.</a></li>
     {% endif %}
 

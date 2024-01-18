@@ -1,7 +1,10 @@
 <div>
     <strong>Navbar</strong>
-    {% if user.is_authentiated %}
-    <a href="{% url "account:signout" %}">Signout</a>
+    {% if is_authentiated %}
+    <form method="post" action="{% url "account:signout" %}">
+        {% csrf_token %}
+        <button type="submit">Signout</button>
+    </form>
     {% else %}
     <a href="{% url "account:signin" %}">Signin</a>
     {% endif %}

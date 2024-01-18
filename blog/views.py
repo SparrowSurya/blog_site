@@ -2,6 +2,7 @@ from django.forms.models import BaseModelForm
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from . import models
 from . import forms
@@ -19,7 +20,7 @@ class BlogDetail(DetailView):
     context_object_name = "blog"
 
 
-class BlogWriteView(CreateView):
+class BlogWriteView(LoginRequiredMixin, CreateView):
     template_name = "blog/blog_write.html"
     model = models.BlogPost
     form_class = forms.BlogCreationForm

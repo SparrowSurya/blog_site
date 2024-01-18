@@ -13,13 +13,8 @@ class Signup(CreateView):
 
 class Signin(LoginView):
     template_name = "account/signin.html"
-    success_url = reverse_lazy("blog:blog_list")
-    redirect_authenticated_user = True
-
-    def get_redirect_url(self) -> str:
-        return reverse_lazy("blog:blog_list")
+    redirect_authenticated_user = True # redirect url is handeled in settings.py
 
 
 class Signout(LogoutView):
-    def get_redirect_url(self):
-        return reverse_lazy("page:home")
+    next_page = 'page:home'

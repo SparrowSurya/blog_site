@@ -9,9 +9,10 @@
 * [x] User SignIn
 * [x] User SignOut
 * [x] Write Blog
-* [ ] Dashboard
+* [x] Dashboard
 * [ ] Edit blog
 * [ ] Publish Blog
+* [ ] Unpublish Blog
 
 ## Later
 * Interface design (for now only required info is shown in minimal form)

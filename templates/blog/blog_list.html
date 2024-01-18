@@ -2,7 +2,7 @@
 
 {% block title %}All | Blogs{% endblock title %}
 
-{% block navbar %} {% include "navbar.html" %} {% endblock navbar %}
+{% block navbar %} {% include "navbar.html" with is_authentiated=user.is_authenticated %} {% endblock navbar %}
 
 {% block content %}
 
