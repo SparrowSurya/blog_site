@@ -10,9 +10,12 @@
 * [x] User SignOut
 * [x] Write Blog
 * [x] Dashboard
-* [ ] Edit blog
-* [ ] Publish Blog
+* [x] Edit blog (if published then redirect to read view)
+* [x] Publish Blog
 * [ ] Unpublish Blog
+* [ ] Search blog
+* [ ] Tags
+* [ ] Like blog
 
 ## Later
 * Interface design (for now only required info is shown in minimal form)

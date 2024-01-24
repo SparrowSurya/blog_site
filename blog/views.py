@@ -1,6 +1,9 @@
-from distutils.log import Log
+from typing import Any
+from django.shortcuts import redirect
+from django.utils import timezone
+from django.db.models import Q
 from django.forms.models import BaseModelForm
-from django.http import HttpResponse
+from django.http import HttpRequest, HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -40,9 +43,21 @@ class BlogUpdateView(LoginRequiredMixin, UpdateView):
     form_class = forms.BlogUpdationForm
     success_url = reverse_lazy("page:dashboard")
 
+
+    def get(self, request: HttpRequest, *args: str, **kwargs: Any) -> HttpResponse:
+        slug = Q(slug=kwargs['slug'])
+        is_published = Q(status=1)
+        if self.model.objects.filter(slug & is_published):
+            return redirect("blog:blog_detail", slug=kwargs['slug'])
+        return super().get(request, *args, **kwargs)
+
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
         self.object = form.save(commit=False)
         self.object.author = self.request.user
         self.object.slug = ''
+
+        if self.object.status == 1: # publish
+            self.object.published_on = timezone.now()
+
         self.object.save()
         return super().form_valid(form)

@@ -16,6 +16,7 @@ class BlogPost(models.Model):
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
+    published_on = models.DateTimeField(null=True)
     status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
