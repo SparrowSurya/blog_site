@@ -14,12 +14,15 @@
 <ul>
     {% for blog in blogs %}
     <li>
+        {% if blog.status == 0 %}
+        <strong>
+            <a href="{% url "blog:blog_update" blog.slug %}">{{ blog }}</a>
+        </strong>
+        <p>Draft</p>
+        {% else %}
         <strong>
             <a href="{% url "blog:blog_detail" blog.slug %}">{{ blog }}</a>
         </strong>
-        {% if blog.status == 0 %}
-        <p>Draft</p>
-        {% else %}
         <p>Published</p>
         {% endif %}
     </li>
